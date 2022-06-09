@@ -44,10 +44,15 @@ for file in files:
 
 print(file_dict.keys())
 
+
+target_dir = "week"
+if not os.path.exists(target_dir):
+    os.makedirs(target_dir)
+
 # 将对象写入到文件中
 for key, values in file_dict.items():
     # 按每周生成文件
-    file = "week/" + key + ".md"
+    file = target_dir + "/" + key + ".md"
     with open(file, 'w') as target:
         for item in values:
             target.write(item)
